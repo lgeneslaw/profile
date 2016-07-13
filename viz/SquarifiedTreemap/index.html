@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Theme River</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/processing.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/site.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1>Squarified Treemap</h1>
+		<h2>CS150 - Data Visualization</h2>
+		<h2>Luke Geneslaw</h2>
+	</header>
+	<p1><br>The Squarified Treemap displays hierarchical data, quantifying an entity with a box that sizes itself based on the entity's value. The overall display attempts to squarify each box so that the diagram contains few uneven rectangular structures and is therefore easy to read.</p1>
+    <!-- Set the width here to whatever the size of your visualization. -->	
+	<section style="width:800px">
+        <!-- Linked .pde files from your project should be listed here 
+        	 (in any order, separated by a space) and need to be in the 
+        	 same directory as this index.html file. 
+        -->
+        <canvas id="processing" data-processing-sources="a4.pde Rectangle.pde Parser.pde"></canvas>
+	</section>
+</body>
+</html>

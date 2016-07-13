@@ -1,0 +1,109 @@
+/*
+ * style for boggle cubes
+ */
+
+div.lett {
+		height: 22px;
+		width: 22px;
+		padding: 10px;
+		font-family: arial, monospace;
+		font-weight: bold;
+		font-size: 18px;
+		border-style: outset;
+		border-width: 2px;
+		margin: 1px;
+		border-radius: 5px;
+		background-color: lemonchiffon;
+		text-align: center;
+	}
+
+
+td.bogcell {
+		background-color: lightblue;
+	}
+
+.human_input {
+		font-family: courier, monospace;
+		font-size: 12px;
+		font-weight: normal;
+		text-transform: uppercase;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		background: #E1EDF2;
+	}
+#solution_cell {
+		font-family: courier, monospace;
+		font-size: 12px;
+		font-weight: normal;
+		text-align: left;
+		text-transform: uppercase;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		background: #E1EDF2;
+		height: 252px;
+		width: 140px;
+		padding: 5px;
+		overflow: auto;
+		overflow-x: hidden;
+	}
+
+td {
+		text-align: center;
+		vertical-align: top;
+}
+
+
+#boardcell {
+		height: 260px;
+		width:  260px;
+}
+div.mid_div {
+		margin-left: auto;
+		margin-right: auto;
+}
+/* display the time */
+.timer {
+		font-family: monospace;
+		width: 20px;
+}
+		
+/* column header for the three main columns */
+th {
+		font-family: arial, sans;
+		text-align: center;
+		padding-top: 8px;
+		font-size: 12px;
+		font-weight: bold;
+		padding-bottom: 3px;
+}
+.bogtitle {
+		font-family: arial, sans;
+		font-variant: small-caps;
+		font-size: 16px;
+		font-style: italic;
+		font-weight: bold;
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: lightblue;
+	}
+
+.bog_but {
+		font-size: 12px;
+		text-align: center;
+		border-style: outset;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+
+.announce {
+		font-style: italic;
+		font-weight: bold;
+		color: blue;
+		font-size: 14px;
+		padding-top: 40px;
+		text-align: center;
+	}
+		

@@ -1,0 +1,10 @@
+Comp150 Visualization Final Project
+Visualization of Ben Shapiro's Progenitor X Player Data
+Rob's Angels: Rob Ruenes (Project Manager)
+	      Luke Geneslaw (Designer)
+              Paul Chang (Software Architect)
+
+===============================================================================
+Like our other submissions for this class, the project was written utilizing 
+Processing. Our program's "main" file is named gamevisualization.pde. With this
+in mind, the program can be run on any platform capable of running Processing.

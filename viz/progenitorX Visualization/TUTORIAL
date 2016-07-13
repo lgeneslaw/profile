@@ -1,0 +1,21 @@
+Using the program:
+
+When the program is run, the user will notice a number of buttons drawn onto the
+screen. On the right side of the screen, the user is given a visual key to
+understand what information the differently displayed colors are encoding (in
+this version of the project, representing player rankings in term of 
+percentile), and below this key will be scroll buttons allowing the user to 
+move up and down the list of players to see information about those who haven't
+yet been drawn to the screen. On the bottom left of the display are buttons
+to change which particular task is being viewed, and when this is done, a
+number of buttons will appear, based on how many objectives contained that
+particular task. Clicking on any of the objective buttons will change the view
+such that the clicked objective's column of colored bars is sorted from high 
+percentile to low percentile, which gives the user more control over how 
+information is displayed and giving them more ways to identify patterns in
+user play. The bottom right hand corner also contains four buttons, currently
+labeled "51+, 50-26, 25-1, and Did not improve." When selected, these buttons
+will draw dark borders around those players who improved by a percentage in that
+range. 
+
+

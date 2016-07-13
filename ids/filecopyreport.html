@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<!-- 
+ **********************************************************
+
+             TUFTS COMP 150-IDS HOMEWORK ASSIGNMENT
+
+        Fill in your name, e-mail and answers to questions
+        in the sections provided below.
+
+          All questions are marked up: <li class="q">
+          All answers are marked up:   <li class="a">
+
+
+     PLEASE DO NOT MODIFY ANY THING OTHER THAN THE 
+     NAME, E-MAIL, AND ANSWER FIELDS (you may also add
+     css declarations in the <head> if you need them,
+     but usually you won't.
+
+ **********************************************************
+ -->
+
+
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>Tufts COMP 150-IDS Assignment &#8212; File Copy Project Report</title>
+<link rel="stylesheet" type="text/css" href="http://www.cs.tufts.edu/comp/150IDS/style/homework.css" />
+</head>
+
+<body class="homework">
+
+
+
+
+<div class="UpperLeftHeader">
+<p>Tufts COMP 150-IDS (Fall 2013):
+<br>
+Internet-scale Distributed Systems</p>
+</div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+		HOMEWORK TITLE
+  - -  - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<div class="headerdiv">
+<h1>
+Tufts COMP 150-IDS:<br>
+File Copy Project Report
+</h1>
+</div>
+
+<!-- ******************************************************
+
+              PLEASE ANSWER QUESTIONS IN THE SECTIONS
+	      LABELED class="a" (for answer)
+
+     ****************************************************** -->
+
+
+
+
+<div class="main">
+
+<h2 id="questions">Questions</h2>
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+		QUESTION
+  - -  - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="qa">
+
+<ol class="qa">
+<li class="q">What are the highest "nastiness" levels at which you believe your program will
+successfully copy an entire directory full of files? (We will test your programs using those levels
+on both the client and the server; if all you got working
+was the end-to-end check, then please tell us how to test your work. <em>Also: if high network nastiness messes up your ability to deal with file nastiness, you can give us two pairs: e.g. Test my client and server with networknastiness=4 and filenastiness=1 or networknastiness=0 and filenastiness=3)</em></li>
+<li class="a">
+<!-- replace XX and YY with the actual values -->
+Please test my client and server with: networknastiness= 2 and filenastiness = 3.
+</li>
+
+<li class="q">Is there anything else we should
+know about testing your code, or what you expect it to do
+(beyond what's explained in your report below)?</li>
+<li class="a">
+On higher combinations of network nastiness and file nastiness, we noticed at times
+that output would state that we were giving up on copying a file, and in this case,
+the .TMP file should be deleted, but occasionally some .TMP files would not
+be deleted while others would be.  This can be noticed on combinations of network=3, file=3 
+and higher. Somewhere in the code must be a logic error with regards to deletion of .TMP
+files. (We believe this error only happens upon raising network nastiness above 2; in
+our own testing, while we would often be unable to copy files at file nastiness above
+3, the .TMP files would always be deleted).
+</li>
+
+<li class="q">Did you get help from anyone other than your teammate? If "yes", then briefly explain who helped you and how.</li>
+<li class="a">
+We discussed the project with Noah, discussing some errors and design questions, but did not get help from anyone else.
+</li>
+
+
+<li class="q">(optional) Do you have any other comments on this assignment (e.g. was it worthwhile, what did you learn from it, do you have suggestions for improvment if the course is offered again)?</li>
+<li class="a">
+We thought the assignment was worthwhile, but difficult. Neither of us have had any other
+experience writing network code before, so we definitely struggled a bit trying to think
+of different, "Well, what if this happens?" cases. Overall we don't really feel that
+we have any suggestions for improvement. We found this project to be challenging, but
+worthwhile, and are happy with our attempt.
+</li>
+
+</ol>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * -->
+<!--            REPORT GOES HERE               -->
+<!-- * * * * * * * * * * * * * * * * * * * * * -->
+
+<h2 id="reportbody">Report</h2>
+
+<!-- Delete the entire paragraph below 
+     and replace it with your report. (Do NOT
+     keep the color:grey styling on your report! :-) -->
+<ol class="qa">
+<li class="q">Overview: what did you do? What worked and what didn't?</li>
+<li class="a">We successfully implemented a file copy protocol that uses an end to end check to confirm correctness of files transferred.
+    On lower levels of network and file nastiness, we were able to overcome the errors imposed by the nastyfile and nastysocket classes
+    and still correctly write files from the source directory to the target directory. On higher levels of nastiness, our client and 
+    server would tend to be unable to write files to the target directory. In our tests, however, we never saw a case where we
+    wrote a file to disk claiming it was correct when it wasn't, which we feel reaffirms the validity of our end-to-end check.
+    Unfortunately, we have not been able to track down the root cause of an error where .TMP files occasionally don't get deleted
+    on higher levels of nastiness when the client and server give up on a file.</li>
+<li class="q">Which cases do you think your code handles and why?</li>
+<li class="a">In most cases of file nastiness, we believe our code works. On the client side, we read a file twice and generate a SHA to compare the reads, as we believed this
+    would be the best way to ensure that what we're reading from the disk through the NASTYFILE class is really what is on disk.
+    The server generates a SHA from the file it writes and sends it back to the client, and the comparison between the two is used to determine success or failure. On higher levels
+    of nastiness, we noticed packets being sent with "NASTYNASTY" being injected inside of our data field, and we believe this came from incorrect reads. We were often unable to 
+    deal with this case, as we would run out of file copy retries and give up on the file. We believe on network nastiness 0 through 2, our code can handle what's happening 
+    in the network. On the client side, reads were surrounded with code to ensure that the message coming in was relevant to the context of that read being done; for example,
+    if we were waiting for a hash message back from the server and got a different type of message, that wrong message would be ignored and we would read from the server again. On
+    the server side, reads were done only in one spot inside of a while loop, and the packet would then be inspected for what type of message it was. As such, the server and client
+    obide by request-response; all the server knows is what kind of messages it can receive and how it should respond to those messages, while the client is really supposed to deal
+    with missing/out-of-order/delayed packets and try to get the correct response back from the server by resending requests.
+    On network nastiness above 2 we encountered difficulty overcoming the challenges imposed by the nastysocket. We believe that our code was not robust enough in these cases,
+    and that logically we were missing a few "Well, what if this packet came now instead?" sorts of cases, leading to the client sending and receiving the wrong types of messages
+    over and over, causing fails on some of the files. Generally, we believe that our code should handle out of order write packets, because we used fseek to write files
+    to disk, so the orders of receiving write files on the server side shouldn't matter, as logic was in place to determine at what byte offset in the written file the
+    newest data coming in from the client should go.</li>
+<li class="q">Describe your protocol:
+What is the sequence of packets you send in the normal cases and for recovery?
+What is the structure of your packets? Briefly explain each significant field. You can copy/paste the actual structs if you like, but include enough commentary (in the structs or below it) that we can figure out what's going on.
+What's your approach to dealing with lost packets? Packets that are reordered?
+Are there any invariants that give you confidence in the correctness of your protocol (e.g. "My rename is done after my end-to-end check succeeds, so any TARGET file without a .TMP suffix is correct")</li>
+<li class="a">
+    In a normal case, the following would happen:
+    <ol>
+        <li>The client will send a write packet to the server. These packets will be sent over and over until the entire file has been sent in packets. In trying
+            to prevent too many packets from reaching the other side at once (thus causing the server to miss packets because it took too long writing to disk),
+            every 25 packets, we cause the client to pause, slowing down the flow of packets being sent.</li>
+            <li>The server receives these write files, extracts data from them, and writes their contents to disk.</li>
+            <li>Once the client believes it has sent the entire file, it sends a "check" message, initiaing the end-to-end check between the two components.</li>
+            <li>When the server sees this packet, it checks the filesystem for a .TMP version of that file. If it finds it, it reads it into a buffer and generates
+                a SHA code, which it then sends back to the client in a hash packet.</li>
+                <li>The client receives this packet and inspects it, comparing it against the original SHA generated for that file on the client side using a hash map.
+                    Depending on the result, the client will send a success or failure packet.</li>
+                    <li>When the server receives a success packet, it removes the .TMP extension from that file. If a failure packet is received, the file is deleted.
+                        The server then sends back the same packet it received, confirming to the client to move onto the next file.</li>
+                        
+                    </ol>
+                    <br>
+                    In the case of a failure, this process will be repeated five times, and after this, the client will give up trying to send that file.
+                    <br>
+                    All packets were text based.
+                    <br>
+                    <br>
+                    Write packets are formatted as follows:
+                    <br>
+                    Bytes 0 - 255 --> &lt;File Data>
+                    <br>
+                    Bytes 256 - 258 --> &lt;Amount of Data>
+                    <br>
+                    Bytes 259 - 264 --> "Write "
+                    <br>
+                    Bytes 265 - 274 --> &lt;Sequence number>
+                    <br>
+                    Bytes 275 - first '\0' or 512 --> &lt;Filename>
+                    
+                    <br>*NOTE: We send a maximum of 256 bytes of data in a packet, but we needed to include a field for the amount of data sent in the final case when, more likely than not, there will be less than 256 bytes of data sent. Since data can contain null characters and we can't just read into the data until we see one, we decided to explicitly write into the packet how much data was being sent.
+                    
+                    <br>
+                    <br>
+                    Check packets are formatted as follows:
+                    <br>
+                    Bytes 0 - 6 --> "Check "
+                    <br>
+                    Bytes 7 - first '\0' or 512 --> &lt;Filename>
+                    
+                    <br>
+                    <br>
+                    Hash packets are formatted as follows:
+                    
+                    <br>
+                    Bytes 0 - 6 --> "hash: "<br>
+                    Bytes 7 - 27 -->  &lt;SHA generated from file><br>
+                    Byte 28 --> " "<br>
+                    Bytes 29 - first '\0' or 512 --> &lt;Filename><br>
+                    
+                    <br>
+                    Success packets are formatted as follows:<br>
+                    Bytes 0 - 7 --> "Success "<br>
+                    Bytes 8 - first '\0' or 512 --> &lt;Filename><br>
+                    <br>
+                    
+                    Failure packets are formatted as follows:<br>
+                    Bytes 0 - 7 --> "Failure "<br>
+                    Bytes 8 - first '\0' or 512 --> &lt;Filename><br>
+                    
+                    <br>
+                    <br>
+                    
+                    Although we planned to implement a check to resend lost write packets, we did not have time to get it working before submission. A detailed explanation of this plan follows at the end of this document. Other lost packets are dealt with, however. We surround our reads and writes in the client with loops, that will send a packet, and wait for a resonse, but will reloop if the response we received is not the packet type we should have gotten back. Since these are idempotent requests being sent, we can send those packets over and over. This procedure similarly allows to deal with out of order packets, as the client will just try to read until we get the type of packet that we were expecting back.
+                    <br>
+                    <br>
+                    The following invariants are true for our protocol.                                            
+                    <ul>                        
+                        <li>Because renaming happens after the end-to-end check, any file without a .TMP suffix was correctly copied.</li>      
+                        <li>The end-to-end check is performed for every individual file; therefore, the failure to copy one particular file
+                            will not affect the success/fail rate for another file.</li>
+                                               
+                    </ul>
+                        
+                    
+</li>
+<li class="q">Do you expect your code to succeed when there are errors reading or writing the disk? What ensures that it will succeed, or why do you think it might not?
+Are there bugs or shortcomings you know about? Are they indicated in comments in the code with NEEDSWORK? (see commenting and code quality)</li>
+<li class="a">Generally we expect that our code should succeeds when there are errors reading or writing from the disk, because we double check our intial read from disk on the client side by generating SHAs, and since we send SHA codes from the server to the client to confirm the correctness of the written file during the end-to-end check. Our protocol may give up on trying to copy a file, but to the best of our knowledge given our testing it should never write a file to disk claiming it is correct when it is not. There are bugs and shortcomings we know about; on higher levels of nastiness our protocol tends to be unable to send anything but the smallest types of files, failing over and over. In addition, there is a bug on higher levels not found on lower ones where it occasionally fails to delete a .TMP file after giving up on trying to transfer that particular file. Areas where we feel our code needs improvement/could be more robust are indicated with NEEDSWORK.</li>
+<li class="q">What should we look for in the grading logs? Please relate this to your explanation of the protocol you've invented (if you like, you can combine the two, indicating gradelog entries as you explain the protocol, or you can explain the gradelog separately).</li>
+<li class="a">The grading logs contain all of the output required in the project guidelines. We had planned to include messages about retries of individual write packets as well,
+    but did not as we did not end up implementing the resending of write packets from the client to the server in the case that they were dropped.</li>
+<li class="q">Which cases are you aware of (e.g. high nastiness levels or particular combinations of reordering) that you aren't trying to handle correctly? In such cases, will your code detect the problem and abort (OK) or will it silently produce incorrect results?</li>
+<li class="a">We believe that in any case where a write packet is dropped, the copy will fail, but the end to end check will catch this and retry. As such, we will not abort or silently produce incorrect results, but we'll more than likely not be able to copy over that file if the network nastiness is high enough that we're always dropping a write packet. We did not implement the procedure to try to resolve this (although it is detailed below). We've thrown in checks to handle dropped and unordered packets, but if there are issues of us failing in these cases, we are unsure why, and therefore were not even able to try to handle them correctly. </li>
+<li class="q">If your code has to give up copying one file, will it go on and try others? This can be a good thing to do. Certain protocols will tend to succeed on short files, but not on longer ones. If this is true of yours, can you explain why? If you have this problem, what file sizes do you handle at which nastiness levels, and how long does it typically take for them to be copied?</li>
+<li class="a">When we give up on copying a file, we try copying the next file in the directory, and we did this for exactly the reason mentioned above - we wanted to try to copy as many files over as possible in any given situation. We know we have a problem where
+we fail if a write packet is dropped, because we don't have any code in place to ask to resent that dropped packet. As such, only the smallest files will get written under these conditions, as one dropped packet guarantees failure during the end-to-end check and it's unlikely that a larger file would be able to make it entirely from client to server without losing at least one packet. We don't explicitly try some files and not others based on filesize at any level, but at network nastiness 3 and above typically we can only send files that will be made up of very few packets. </li>
+<li class="q">Are there any cases for which your code doesn't do what you expect? Do you have any intuition why that might be?</li>
+<li class="a">As we've mentioned, we are uncertain why we occasionally have leftover .TMP files when it has been decided a file failed. However, this tends to happen on higher nastiness levels, so if the packet telling the server to delete the file were to get dropped, then it makes sense that we wouldn't be deleting the .TMP file.</li>
+<li class="q">What did you learn from this asssignment?</li>
+<li class="a">We learned a lot from this assignment. We learned what it's like to write distributed code and everything you need to take into account when utilizing unreliable resources to implement a reliable system. We learned how to identify which questions we needed to ask ourselves when sending and receiving messages across a network (What if this gets read twice? What if this doesn't get there? How many times should we keep trying this?). During the course of the project we also developed better intuition about where to be looking for errors. We also learned request-response in the way we implemented the client and server. While challenging, we felt we took a lot away from this project.</li>
+
+<li class="q">Include anything else that will demonstrate your understanding of this assignment and your results. Your comments on the assignment, and suggestions for future revisions of it are also welcome. Also, please include a statement confirming that both team members were present for (substantially) all coding, and that both worked out the design together (obviously, you can do some individual design work, but it should be roughly balanced, and you and your team mate must make all final decisions together, and with shared understanding.</li>
+<li class="a">The last thing we want to talk about is what our plan would have been if we had the time to implement a procedure between the client and server that would resend write packets that had been dropped in the process of copying a file. Had we implemented this, we believe that our project would have been able to succeed on higher nastiness levels. We included a high amount of detail just to make it clear that we fully thought this out, but there is a summary at the end which includes a higher level description.<br>Each time the client sends a packet, it will store it in a sent_packets array of size 25. After the client sends 25 Write packets, we would have had it send a "loss_check" packet, asking the server which packets (of those 25) it did not receive. The construct of this packet would have been as follows:<br>
+<ul>
+    <li>0  - 11 --> "Loss Check "</li>
+    <li>12 - 22 --> First Sequence number (i.e. after first 25 packets, this would be 0. After second 25 packets, this would be 25.)</li>
+    <li>23 - end--> Filename</li>
+</ul>
+The server would have a packet_history array of size 25 that keeps track of which packets it has received. Each time it receives a write packet, it would have logged that in the array. (For example: the server receives a write packet with sequence number 56. It would place the number 56 in the packet_history at index 56%25.) After the server receives a loss_check packet, it would check the packet_history for the 25 packets starting from the First Sequence Number. (Example: the server receives "Loss Check 50data100". The server will loop through the packet_history, looking for the 25 sequence numbers starting from 50. As it does this, it will add 'T' or 'F' to a "Loss Response" packet, which will let the client know which packets need to be resent. (For example: The server receives "Loss Check 50data100". Assume it did not receive packets 54 and 67. The server will loop through the packet_history and see the incorrect sequence number at indeces 4 and 17. These correspond to 'F's in the Loss Response, which will look like this: "Loss Response TTTTFTTTTTTTTTTTTFTTTTTTTTdata100". Finally, the server would send this packet to the client, which will find the proper packets in sent_packets array and resend them. Finally, the client sends the same loss_check packet, repeating this process until the server has all of the packets.<br>
+On a high level: The client saves its most recent 25 Write packets. The server keeps track of the sequence numbers that it has seen. After the client sends 25 packets, it asks the server which packets it missed (given a starting point). The server checks its sequence number history and sends the client one packet that explains which packets it missed. The client resends those packets, then resends another loss_check packet until the server gets everything.
+<br>
+<br>
+Everything implemented in this project was agreed upon by both of us. All of the coding was done together, and while we had individually came up with different ideas for parts of the design, every aspect was agreed upon and implemented together, with shared effort and understanding.</li>
+</ol>
+</div>
+</div>
+</body>
+</html>
