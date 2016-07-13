@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>progenitorX Visualization</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/processing.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/site.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1>progenitorX Visualization</h1>
+		<h2>CS150 - Data Visualization</h2>
+		<h2>Luke Geneslaw, Robert Ruenes, Paul Chang</h2>
+	</header>
+    <p1><br>Visualizes player data from the game progenitorX. In this game, students had to repeatedly perform certain tasks. In this visualization, each row is a student and each individual box shows the percentile in which the student performed at a given task during a given objective. You can change tasks at the bottom and sort by different objectives.<br></p1>
+    <a href="TUTORIAL" target="_blank">Tutorial</a>
+	
+    <!-- Set the width here to whatever the size of your visualization. -->	
+	<section style="width:1100px" style="height:700px">
+        <!-- Linked .pde files from your project should be listed here 
+        	 (in any order, separated by a space) and need to be in the 
+        	 same directory as this index.html file. 
+        -->
+        <canvas id="processing" data-processing-sources="button.pde column.pde gamevisualization.pde parser.pde prepost_parser.pde task.pde"></canvas>
+	</section>
+</body>
+</html>

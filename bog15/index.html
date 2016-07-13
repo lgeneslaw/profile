@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	<link rel='stylesheet' type='text/css' href='gf.pl?bog.css' />
+	<script type='text/javascript' src='gf.pl?bogtrain.js'> </script>
+	<script type='text/javascript' src='gf.pl?ajaxfuncs.js'> </script>
+    </head>
+
+    <body>
+	<!-- big table for overall layout -->
+	<table border='1' cellpadding='3' cellspacing='0' >
+	    <tr>
+		<td class='bogtitle'>
+			Boogle Trainer
+		</td>
+	    </tr>
+	
+	    <tr>
+		<td>
+		    <!-- table for main panel layout -->
+		    <table border='0' cellpadding='10' cellspacing='0'>
+		    <tr>
+			<th class='colhdr'>Your Words</th>
+			<th class='colhdr'>The Board</th>
+			<th class='colhdr'>Computer Answer</th>
+		    </tr>
+
+		<!-- the input and output panels -------------->
+		    <tr>
+			<td>
+				<textarea cols='20' rows='17' 
+					id='human_input'
+					class='human_input'></textarea>
+			</td>
+			<td align='center' valign='top' >
+				<div class='mid_div' id='boardcell'></div>
+			</td>
+			<td>
+				<div id='solution_cell'></div>
+			</td>
+		    </tr>
+
+		<!-- the buttons ------------------------------->
+
+		    <tr>
+			<td>
+				<input	type='button' class='bog_but' 
+					value=' Check '
+					id='checkbtn'
+				        onclick='validate_user_input()' />
+			</td>
+			<td>
+				<input type='button' class='bog_but' 
+					value=' Vertical '
+					onclick='set_board_vertical()' />
+				<input type='button' class='bog_but' 
+					value=' Shaken '
+					onclick='set_board_random()' />
+				<input type='button' class='bog_but' 
+					value=' 4x4 '
+					onclick='make_new_board("n")' />
+				<input type='button' class='bog_but' 
+					value=' 5x5 '
+					onclick='make_new_board("b")' />
+			</td>
+
+			<td >
+				<input type='button' class='bog_but' 
+					value=' Solve '
+					id='solvebtn'
+					onclick='show_solution()' />
+				<br/>
+				<div style='height: 10px; width: 10px;
+						background-color: #DDDDDD;'
+					>
+				<a href='javascript:show_internal_data()'>
+				.
+				</a>
+				</div>
+			</td>
+		    </tr>
+
+		<!-- the results ------------------------------->
+
+		    <tr>
+			<td id='validation_results'></td>
+			<td align='center' class='timer' 
+					   onclick='toggle_timer()'>
+				<span id='timeleft'></span>
+			</td>
+			<td id='solve_results'></td>
+		    </tr>
+		</table>
+	    </td>
+	</tr>
+	</table>
+    </body>
+</html>

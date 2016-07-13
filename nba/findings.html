@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NBA Championship Ages</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Youngest NBA Championship Teams</h1>
+            <p class="lead" id="intro">Throughout NBA history, the teams that win championships have almost always done so with the right mix of skilled players and veteran talent. Ability alone is not enough to win a title. Given this fact, the teams that are expected to win championships generally have at least few players who would be classified as "old."</p>
+            <p id="questions">This begs a few questions:
+            <p>
+            <ul>
+                <li>What is the average age for a championship team?</li>
+                <li>What is the oldest team to win a championship?</li>
+                <li>What is the youngest team to win a championship?</li>
+            </ul>
+            <p id="problem">To answer these questions, we must define how the age of an entire team is classified. It would be unreasonable to simply average the ages of the teams' roster, because certain players play much more than others. What if a team has 5 players over the age of 35, but they each averaged less than 10 minutes a game? To calculate the age of a team, both the ages of the players and the number of minutes played for each player must be considered. So, the following formula will calculate the weighted age (WAGE) of a team:</p>
+            <img align="middle" id="formula" src="wage.png" alt="WAGE">
+            <p>where minutes is the total number of minutes played by 1 player (note: playoff minutes were used to determine the age of a team as they made their title run). So, WAGE is calculated by multiplying the age and minutes played by one player together, taking the sum of this result for all players, and dividing that sum by the total number of minutes played by the entire roster.</p>
+            <p class="lead" align="center"><strong>The following are the youngest teams to have won an NBA championship:</strong></p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Championship Team</th>
+                        <th>Weighted Age (WAGE)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>1976-77 Portland Trail Blazers</td>
+                        <td>24.199</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>1955-56 Philadelphia Warriors</td>
+                        <td>25.587</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>1979-80 Los Angeles Lakers</td>
+                        <td>25.710</td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>1954-55 Syracuse Nationals</td>
+                        <td>25.867</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>1951-52 Minneapolis Lakers</td>
+                        <td>25.940</td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>1970-71 Milwaukee Bucks</td>
+                        <td>26.049</td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td>1974-75 Golden State Warriors</td>
+                        <td>26.386</td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <td>2014-15 Golden State Warriors</td>
+                        <td>26.393</td>
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>1952-53 Minneapolis Lakers</td>
+                        <td>26.485</td>
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td>1956-57 Boston Celtics</td>
+                        <td>26.556</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="lead" align="center"><strong>The following are the oldest teams to have won an NBA championship:</strong></p>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Championship Team</th>
+                        <th>Weighted Age (WAGE)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>1997-98 Chicago Bulls</td>
+                        <td>32.096</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>2010-11 Dallas Mavericks</td>
+                        <td>31.607</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>1968-69 Boston Celtics</td>
+                        <td>30.914</td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>1996-97 Chicago Bulls</td>
+                        <td>30.790</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>2006-07 San Antonio Spurs</td>
+                        <td>30.759</td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>1995-96 Chicago Bulls</td>
+                        <td>30.526</td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td>1998-99 San Antonio Spurs</td>
+                        <td>30.090</td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <td>2012-13 Miami Heat</td>
+                        <td>30.077</td>
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>1967-68 Boston Celtics</td>
+                        <td>30.033</td>
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td>2013-14 San Antonio Spurs</td>
+                        <td>29.617</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p id="analysis" class="lead">The average WAGE for a championship team is 28.234. The youngest team (Bill Walton's 1976-77 Portland Trail Blazers) was nearly a full standard deviation younger than the next youngest team (Paul Arizin and Neil Johnston's 1955-56 Philadelphia Warriors). Michael Jordan led his 1997-98 Chicago Bulls to their 6th championship in 8 years and became the oldest team in history to win a title.</p>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files 
+                as needed -->
+            <script src="bootstrap/js/bootstrap.min.js"></script>
+        </div>
+    </body>
+</html>

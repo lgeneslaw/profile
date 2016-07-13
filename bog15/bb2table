@@ -1,0 +1,197 @@
+#!/usr/bin/perl
+#
+# bb2table -- convert a boggle board file to an html table
+#
+# usage: bb2table [opts] bbfile
+#
+#   opts: -b idbase	- make all cell ID's have this base
+#			   default is C##_##
+#	  -s X		- set the class='X' attribute to X
+#			   default is "lett"
+#	  -r		- rotate letters randomly
+#
+#   bbfile has the format:
+#     rows cols
+#     row1
+#     row2 ...
+#
+#   each row is a single string of chars
+#
+#   output:
+#	An HTML table 
+#	  The cells in the table contain div elements that
+#	  have class X (see option). This will allow the
+#	  divs to have rounded corners and nice fonts and
+#	  backgrounds.
+#
+#   author: bmolay
+#   hist:
+#	2013-04-10 first version
+#
+#
+
+	my $rotate = 0;
+	my $base = "C";
+	my $class = "lett";
+	my $tdclass = "bogcell";
+
+	main();
+	exit(0);
+
+# --------------------------------------------------------
+
+	sub main
+	{
+		my @board = ();
+		my $line;
+		my $rows;
+		my $cols;
+
+		@ARGV = parse_opts(@ARGV);
+		$line = <>;
+		if( $line =~ /\s*(\d+)\s+(\d+)/ ){
+			($rows,$cols) = ($1, $2);
+		}
+		else {
+			print STDERR "missing dimensions in board\n";
+			exit(1);
+		}
+		@board = read_board($rows,$cols);
+		print_board(@board);
+	}
+	#
+	# args: row, cols, listoflines
+	#
+	sub print_board
+	{
+		table_start();
+		table_body(@_);
+		table_end();
+	}
+
+	sub table_start
+	{
+		print "<table border='1' cellspacing='0' cellpadding='1'>\n";
+	}
+	sub table_end
+	{
+		print "</table>\n";
+	}
+	sub table_body
+	{
+		my $r;
+		my $let;
+		my $rn = 0;
+		my $cn;
+	
+		foreach $r ( @_ )
+		{
+			print "  <tr>\n";
+			$cn = 0;
+			foreach $let ( split(//, $r) )
+			{
+				print_one_cell($let, $rn, $cn, "       ");
+				print "\n";
+				$cn++;
+			}
+			print "  </tr>\n";
+			$rn++;
+		}
+	}
+
+	#
+	# args: char, row, col, indentstring
+	#
+	sub print_one_cell
+	{
+		my ($chr, $row, $col, $ind) = @_;
+		my $val = $chr;
+		if ( $chr eq "Q" ){
+			$chr = "Q<small>u</small>";
+			$val = "QU";
+		}
+		if ( $chr eq "N" ){
+			$chr = "<u>N</u>";
+		}
+		my $ID = $base . $row . "_" . $col;
+		my $rot = 0;
+		my $amt;
+		my $deg;
+		if ( $rotate ){
+			$amt = 90 * int(rand(4)) ;
+			$deg = $amt . "deg";
+			$rot = "style='"
+			     . " -moz-transform:rotate($deg);"
+			     . " -webkit-transform:rotate($deg);"
+			     . " -o-transform:rotate($deg);"
+			     . " -ms-transform:rotate($deg);"
+			     . "' ";
+		}
+
+		print $ind, "<td class='$tdclass'>\n";
+		print $ind, "  <div class='$class'>\n";
+		print $ind, "    <div id='$ID' value='$val' rot='$amt' ";
+		if ( $rot ) { print $ind, "  ",  $rot, "\n"; }
+		print $ind, "     >$chr</div>\n";
+		print $ind, "  </div>\n";
+		print $ind, "</td>\n";
+	}
+
+	#
+	# read in $rows strings from input, store in an array
+	# args are rows cols
+	#
+	sub read_board
+	{
+		my ($rows, $cols) = @_;
+		my $i;
+		my $l;
+		my $orig;
+		my @b = ();
+
+		for($i=0; $i<$rows; $i++){
+			$orig = $l = <>;
+			chomp($l);
+			$l =~ s/\s//g;
+			if ( length($l) != $cols ){
+				print STDERR "Wrong row length at $orig\n";
+				exit(1);
+			}
+			push(@b, uc($l));
+		}
+		return @b;
+	}
+
+	#
+	# args: the command line args
+	# rets: the same list with options removed
+	#
+	sub parse_opts
+	{
+		my @args = ();
+		my $arg ;
+		my $opt ;
+
+		while( $arg = shift(@ARGV) ){
+			if ( $arg =~ /^-(.)/ ){
+				$opt = $1;
+				if ( $opt eq "b" ){
+					$base = shift(@ARGV);
+				}
+				elsif ( $opt eq "s" ){
+					$class = shift(@ARGV);
+				}
+				elsif ( $opt eq "r" ){
+					$rotate = 1;
+				}
+				else {
+					die "Unknown option: -$arg";
+				}
+			}
+			else {
+				push( @args, $arg);
+			}
+		}
+		return @args;
+	}
+

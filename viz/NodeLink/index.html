@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Force-Directed Node-Link Diagram</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/processing.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Force-Directed Node-Link Diagram</h1>
+		<h2>CS150 - Data Visualization</h2>
+		<h2>Luke Geneslaw</h2>
+	</header>
+
+    <p1><br>Click to drag the nodes. The nodes are experiencing repulsive forces between each other as well as attractive forces via edges. These forces cause motion throughout the graph. The motion is quantified by the energy display at the top. When the energy drops below .1, the graph is considered to be in equilibrium and stops moving.</p1>
+	
+    <!-- Set the width here to whatever the size of your visualization. -->	
+	<section style="width:1000px">
+        <!-- Linked .pde files from your project should be listed here 
+        	 (in any order, separated by a space) and need to be in the 
+        	 same directory as this index.html file. 
+        -->
+        <canvas id="processing" data-processing-sources="Node.pde Edge.pde Parser.pde a5.pde"></canvas>
+	</section>
+</body>
+</html>

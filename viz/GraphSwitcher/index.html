@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Graph Switcher</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/processing.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Line and Bar Graph Switcher</h1>
+		<h2>CS150 - Data Visualization</h2>
+		<h2>Luke Geneslaw</h2>
+	</header>
+
+    <p1><br>Graph Switcher graphs data from a file on both a line graph and<br>
+    bar graph. The graphs can be switched by clicking the red button.<br>
+    Mouse overs are supported for both graphs.<p2>
+	
+    <!-- Set the width here to whatever the size of your visualization. -->	
+	<section style="width:1200px">
+        <!-- Linked .pde files from your project should be listed here 
+        	 (in any order, separated by a space) and need to be in the 
+        	 same directory as this index.html file. 
+        -->
+        <canvas id="processing" data-processing-sources="a2.pde GraphSwitcher.pde LineGraph.pde Point.pde BarGraph.pde DataElement.pde MyButton.pde Bar.pde Graph.pde Parser.pde"></canvas>
+	</section>
+</body>
+</html>
