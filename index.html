@@ -29,7 +29,6 @@
     /* ID rules */    
     #header {
         padding-top: 110px;
-        padding-bottom: 50px;
         background-color: #BCE5ED;
     }
     #full-bg {
@@ -95,7 +94,12 @@
     }
 
     /* media queries */
-    /* xs */
+    @media(max-width: 767px) {
+        #header {
+            padding-bottom: 50px;
+        }
+    }
+    /* sm */
     @media(min-width: 768px) {
         .company {
             text-align: left;
@@ -104,7 +108,7 @@
             text-align: right;
         }
     }
-    /* sm */
+    /* md */
     @media(min-width: 991px) {
         .about-container {
             height: 460px;
@@ -115,7 +119,7 @@
             transform: translateY(-50%);
         }
     }
-    /* md+ */
+    /* lg */
     @media(max-width: 991px) {
         p {
             font-size: 16px !important;
