@@ -1,3 +1,207 @@
+<style>
+
+    /* fix social icon centering */
+    .fa {
+        line-height: inherit !important;
+    }
+
+
+    /* reuseable classes */
+    .margin_5 {
+        margin: 5px;
+    }
+    .margin_b_0 {
+        margin-bottom: 0;
+    }
+    .relative {
+        position: relative;
+    }
+    .absolute {
+        position: absolute;
+    }
+
+    /* tag rules */
+    h3 {
+        font-size: 18px !important;
+    }
+
+
+    /* ID rules */    
+    #header {
+        padding-top: 110px;
+        padding-bottom: 50px;
+        background-color: #BCE5ED;
+    }
+    #full-bg {
+        margin-top: 30px;
+        height: 100vh;
+        background: url(img/me_bg_powder.png) no-repeat top right;
+        background-size: cover;
+    }
+    #prof-pic {
+        width: 100%
+        height: auto;
+    }
+    #skills h2 {
+        margin-bottom: 10px;
+    }
+    #skills-toggle a {
+        cursor: pointer;
+    }
+    #mobile-skills {
+        margin: auto;
+    }
+    #mobile-skills .svg-icon {
+        width: 75px;
+        height: 75px;
+    }
+    #projects {
+        background-color: #F3F3F3;
+    }
+    #projects p {
+        font-size: 16px;
+    }
+    #experience h3 {
+        margin: 0;
+    }
+    #experience p { 
+        margin-bottom: 0;
+    }
+
+
+    /* class rules */
+    .skill-icons {
+        width: auto;
+        text-align: center;
+    }
+    .about {
+        margin-top: 50px;
+        text-align: justify;
+    }    
+    .company {
+        margin-top: 10px;
+    }
+    .company,
+    .dates {
+        font-family: 'Montserrat';
+        line-height: 20px;
+    }
+    .dates {
+        font-size: 16px;
+    }
+    .title {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    /* media queries */
+    /* xs */
+    @media(min-width: 768px) {
+        .company {
+            text-align: left;
+        }
+        .dates {
+            text-align: right;
+        }
+    }
+    /* sm */
+    @media(min-width: 991px) {
+        .about-container {
+            height: 460px;
+        }
+        .about {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    /* md+ */
+    @media(max-width: 991px) {
+        p {
+            font-size: 16px !important;
+        }
+        #prof-pic {
+            height: 300px;
+            width: auto;
+        }
+    }
+
+
+/*****************************************
+            Carousel Styles
+*****************************************/
+ 
+#carousel-wrapper {
+    height: 200px;
+}
+#slider {
+    margin: 0 0 0 -450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.caroufredsel_wrapper {
+    margin: auto !important;
+}
+#carousel {
+    width: 900px;
+    position: relative;
+}
+@media(min-width: 768px) and (max-width: 991px) {
+    #carousel {
+        width: 100%;
+    }
+}
+#carousel ul {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+#carousel li {
+    font-size: 40px;
+    color: #999;
+    text-align: center;
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 6px;
+    float: left;
+    position: relative;
+}
+ 
+#carousel li img {
+    width: 75px;
+    height: 75px;
+}        
+ 
+.clearfix {
+    float: none;
+    clear: both;
+}             
+#carousel .pager {
+    text-align: center;
+    margin: 0 auto;
+}
+#carousel .pager a {
+    background: transparent url(img/carousel_control.png) no-repeat -2px -32px;
+    text-decoration: none;
+    text-indent: -999px;
+    display: inline-block;
+    overflow: hidden;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px 0 0;
+}
+#carousel .pager a.selected {
+    background: transparent url(img/carousel_control.png) no-repeat -12px -32px;
+    text-decoration: underline;             
+}
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,27 +217,17 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom CSS -->
     <link href="bootstrap/css/freelancer.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body id="page-top" class="index">
-
-    <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -54,7 +248,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About Me</a>
+                        <a href="#skills">Skills</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#projects">Projects</a>
@@ -64,19 +258,42 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
+    <div id="header">
+        <div id="full-bg" class="container hidden-xs">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-text">
-                        <span class="name">Luke Geneslaw</span>
-                        <hr class="star-light">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 relative about-container">
+                                <div class="about center-v">
+                                    <h1>Luke Geneslaw</h1>
+                                    <p>I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
+                                    <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a href="https://www.linkedin.com/pub/luke-geneslaw/63/9a0/b56" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/lgeneslaw" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-header" class="container hidden-sm hidden-md hidden-lg text-center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="intro-text">
+                        <h1>Luke Geneslaw</h1>
+                        <p>I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
+                        <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
                         <ul class="list-inline">
                             <li>
                                 <a href="https://www.linkedin.com/pub/luke-geneslaw/63/9a0/b56" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
@@ -89,64 +306,111 @@
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-
-    <!-- About Section -->
-    <section id="about">
+    <section id="skills" class="relative">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About Me</h2>
-                    <hr class="star-primary">
+            <h2 class="text-center">My Skills</h2>
+            <p id="skills-toggle" class="text-center">Here's some of the tech I've worked on so far.</p>
+            <div id="carousel-wrapper" class="relative hidden-sm hidden-xs">
+                <div id="slider">
+                    <div id="carousel">
+                        <ul>
+                            <li><img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/c/c-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/go/go-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/php/php-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/javascript/javascript-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/jquery/jquery-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/bootstrap/bootstrap-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/django/django-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/solr/solr.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/linux/linux-plain.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/apple/apple-original.svg"/></li>
+                            <li><img class="svg-icon margin_5" src="icons/android/android-plain-wordmark.svg"/></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div id="pager" class="pager"></div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <p>I am a software developer and a New Jerseyan living in New York City. I graduated magna cum laude from the Tufts University School of Engineering with a BS in Computer Science and a minor in Engineering Management. I'm increasingly interested in converting raw data into information that be visualized and presented to inform business decisions. In my free time I enjoy playing drums and guitar, as well as playing basketball, soccer, squash, hiking, and skiing. I am a huge Knicks and NBA fan with a passion for sports statistics and analysis. A few projects I have worked on in this area as well as others can be found in the projects section (below).</p>
+                <div class="col-xs-12">
+                    <div id="mobile-skills" class="hidden-md hidden-lg">
+                        <img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/c/c-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/go/go-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/php/php-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/javascript/javascript-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/jquery/jquery-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/bootstrap/bootstrap-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/django/django-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/solr/solr.svg"/>
+                        <img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/>
+                        <img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/>
+                        <img class="svg-icon margin_5" src="icons/linux/linux-plain.svg"/>
+                        <img class="svg-icon margin_5" src="icons/apple/apple-original.svg"/>
+                        <img class="svg-icon margin_5" src="icons/android/android-plain-wordmark.svg"/>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Projects Section -->
     <section id="projects">
+<!-- in your body -->
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Projects</h2>
-                    <hr class="star-primary">
+                    <h2>My Projects</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-<p class="nobreak"><br><b>Tuberculosis Monitor:</b><br></p>
-<p>For my senior capstone project at Tufts, my group of 3 students partnered with the University of Lima to build an app that tracks the health of TB patients by listening to how frequently they cough over time. Check it out on <a href="https://github.com/lgeneslaw/Alva-Cough-TB-Monitor" target="_blank">github</a>, or check out this <a href="poster.pdf" target="_blank">poster</a> for more information.</p>
+                <div class="col-xs-12 col-md-6">
+                    <h3>NBA Python Projects: <a href="https://github.com/lgeneslaw" target="_blank">github</a></h3>
+                    <p>Python scripts that scrape the web to compile &amp; analyze basketball statistics. I used a library called <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank">BeautifulSoup</a> to scrape <a href="http://basketball-reference.com" target="_blank`">basketball-reference.com</a>.</p>
+                    <p class="margin_b_0"><a href="nba/findings.html" target="_blank">Weighted Age of Championship Teams</a> - Ranks the "age" of NBA championship teams.</br></p>
+                    <p class="margin_b_0"><a href="nba/champions.html" target="_blank">NBA Finals Team Stats</a> - Compiles the per-game statistics of every NBA finals team.</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <p><br><b>NBA Python Projects:</b></br></p>
-                    <p>The following python projects scrape the web (specifically basketball-reference.com) in order to store and manipulate NBA statistics/tables. Both projects are available on <a href="https://github.com/lgeneslaw" target="_blank">github</a>.</p>
-                    <p><a href="nba/findings.html" target="_blank">Weighted Age of Championship Teams</a> - Ranks the "age" of NBA championship teams.</br></p>
-                    <p><a href="nba/champions.html" target="_blank">NBA Finals Team Stats</a> - Compiles the per-game statistics of every NBA finals team.</p>
+                <div class="col-xs-12 col-md-6">
+                    <h3>Data Visualization Projects:</h3>
+                    <p>Java applications that use a software package called <a href="http://processing.org/" target="_blank">Processing</a> to create data visualizations and port them on the web.</p>
+                    <p class="margin_b_0"><a href="viz/NodeLink" target="_blank">Force-Directed Node-Link Graph</a> - Simulates a self-structuring graph.</p>
+                    <p class="margin_b_0"><a href="viz/ThemeRiver" target="_blank">Theme River</a> - Displays a flow of data over time.</p>
+                    <p class="margin_b_0"><a href="viz/Circles" target="_blank">Bouncing Circles</a> - A simple project that handles the animation of bouncing circles.</br></p>
+                    <p class="margin_b_0"><a href="viz/SquarifiedTreemap" target="_blank">Squarified Treemap</a> - Displays a tree structure as rectangles within rectangles.</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <p><br><b>Task Manager:</b></br></p>
-                    <p>Web app that displays views of upcoming and past tasks by day/week. User can create, update, and delete tasks through the web portal. Code available on <a href="https://github.com/lgeneslaw/Todo-List-Manager" target="_blank">github</a></p>
+                <div class="col-xs-12 col-md-6">
+                    <h3>Tuberculosis Monitor: 
+                        <a href="img/poster.pdf" target="_blank">poster</a> | <a href="https://github.com/lgeneslaw/Alva-Cough-TB-Monitor" target="_blank">github</a>
+                    </h3>
+                    <p>Android App &amp; Web API that helps track the health of Tuberculosis patients over time.</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-<p class="nobreak"><br><b>Projects for Comp 150-Visualization:</b><br></p>
-<p>While at Tufts, I took a programming course called Visualization that taught me the principles of bringing data to life. We used a software package called <a href="http://processing.org/" target="_blank">Processing</a> to create java-based data visualizations and port them on the web.</p>
-<p><a href="viz/NodeLink" target="_blank">Force-Directed Node-Link Graph</a> - Simulates a self-structuring graph.</p>
-<p><a href="viz/ThemeRiver" target="_blank">Theme River</a> - Displays a flow of data over time.</p>
-<p><a href="viz/Circles" target="_blank">Bouncing Circles</a> - A simple project that handles the animation of bouncing circles.</br></p>
-<p><a href="viz/SquarifiedTreemap" target="_blank">Squarified Treemap</a> - Displays a tree structure as rectangles within rectangles.</p>
+                <div class="col-xs-12 col-md-6">
+                    <h3>Task Manager: <a href="https://github.com/lgeneslaw/Todo-List-Manager" target="_blank">github</a></h3>
+                    <p>Django web app that provides the basic functionality for creating, updating, deleting, and viewing your tasks at various time ranges.</p>
                 </div>
             </div>
         </div>
@@ -157,20 +421,21 @@
     <section id="experience">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Work Experience</h2>
-                    <hr class="star-primary">
+                <div class="col-xs-12 text-center">
+                    <h2>My Experience</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Next Jump, Inc</p>
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="company">Next Jump, Inc</h3>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="dates">July 2015 - Present</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                     <p class="title">Software Engineer</p>
                 </div>
-                <div class="col-lg-4" align="right">
-                    <p>July 2015 - Present</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li>Completed full revamp of product detail pages, including updated version of product API and new responsive UI</li>
                         <li>Created internal tools that enable site owners to curate and edit content on our marketplace</li>
@@ -182,14 +447,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>BMC Software</p>
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="company">BMC Software</h3>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="dates">Summer 2014</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                     <p class="title">Intern</p>
                 </div>
-                <div class="col-lg-4" align="right">
-                    <p>Summer 2014</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li>Built an SNMP Trap Receiver that listens for the completion of jobs on network devices</li>
                         <li>Developed a JMX health dashboard for an OSGi-based system that exposes system internals for diagnostic purposes</li>
@@ -197,26 +464,28 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Fidelity Investments</p>
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="company">Fidelity Investments</h3>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="dates">Fall 2013 - Spring 2014</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                     <p class="title">Part-Time Software Developer</p>
                 </div>
-                <div class="col-lg-4" align="right">
-                    <p>Fall 2013 - Spring 2014</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li>Converted my summer project (see internship below) into a generic, data-driven diagram generator for use in various departments</li>
                         <li>Presented the final product to architects from various departments who can benefit from a diagram generator</li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2">
+                <div class="col-xs-12 col-sm-6">
                     <p class="title">Technical Intern</p>
                 </div>
-                <div class="col-lg-4" align="right">
-                    <p>Summer 2013</p>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="dates">Summer 2013</p>
                 </div>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li>Built data-driven Visio module (VBA) that generated diagrams of asset groupings & dependencies from asset technology data</li>
                         <li>Created a database of asset technology information that provided views for the Visio diagram generator
@@ -224,14 +493,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Tufts Academic Resource Center</p>
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="company">Tufts Academic Resource Center</h3>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="dates">Fall 2012 - Spring 2015</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                     <p class="title">Peer Tutor</p>
                 </div>
-                <div class="col-lg-4" align="right">
-                    <p>Fall 2012 - Spring 2015</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li>Tutor students one-on-one in Comp 11 - Intro to Computer Science and Comp 15 - Data Structures</li>
                     </ul>
@@ -240,12 +511,13 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-md-8 col-md-offset-2">
                         <p align="center">Contact Me: <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a></p>
                     </div>
                 </div>
@@ -263,35 +535,41 @@
 
     <!-- jQuery Version 1.11.0 -->
     <script src="bootstrap/js/jquery-1.11.0.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="bootstrap/js/classie.js"></script>
     <script src="bootstrap/js/cbpAnimatedHeader.js"></script>
-
     <!-- Contact Form JavaScript -->
     <script src="bootstrap/js/jqBootstrapValidation.js"></script>
     <script src="bootstrap/js/contact_me.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/js/freelancer.js"></script>
-
-    <style>
-    
-    #experience p { 
-        margin-bottom: 0;
-    }
-    #experience p.title {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    
-    </style>
+    <!-- Carousel -->
+    <script src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
 
 </body>
 
 </html>
 
+<script>
+
+$(function() {
+ 
+    $('#carousel ul').carouFredSel({
+        prev: '#prev',
+        next: '#next',
+        pagination: "#pager",
+        scroll: 700
+    });
+
+    // overwrite bootstrap nav active classes (they conflicted with freelancer)
+    $('li.page-scroll').removeClass('active');    
+});
+
+    $('li.page-scroll').click(function() {
+        $('li.page-scroll').removeClass('active');
+    });
+
+</script>
