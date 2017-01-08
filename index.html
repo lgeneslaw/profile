@@ -28,11 +28,9 @@
 
     /* ID rules */    
     #header {
-        padding-top: 110px;
         background-color: #BCE5ED;
     }
     #full-bg {
-        margin-top: 30px;
         height: 100vh;
         background: url(img/me_bg_powder.png) no-repeat top right;
         background-size: cover;
@@ -49,10 +47,6 @@
     }
     #mobile-skills {
         margin: auto;
-    }
-    #mobile-skills .svg-icon {
-        width: 75px;
-        height: 75px;
     }
     #projects {
         background-color: #F3F3F3;
@@ -74,9 +68,12 @@
         text-align: center;
     }
     .about {
-        margin-top: 50px;
         text-align: justify;
-    }    
+    }
+    .svg-icon {
+        width: 75px;
+        height: 75px;
+    } 
     .company {
         margin-top: 10px;
     }
@@ -94,13 +91,27 @@
     }
 
     /* media queries */
+    /* xs */
     @media(max-width: 767px) {
+        .svg-icon {
+            width: 50px;
+            height: 50px;
+        }
         #header {
-            padding-bottom: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
-    /* sm */
+    /* sm+ */
     @media(min-width: 768px) {
+        .about-container {
+            height: 100%;
+        }
+        .about {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
         .company {
             text-align: left;
         }
@@ -108,25 +119,18 @@
             text-align: right;
         }
     }
-    /* md */
-    @media(min-width: 991px) {
-        .about-container {
-            height: 460px;
-        }
+    @media(min-width: 768px) and (max-width: 991px) {
         .about {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            padding-right: 10px;
         }
     }
-    /* lg */
+    /* xs & sm */
     @media(max-width: 991px) {
+        h1 {
+            font-size: 35px !important;
+        }
         p {
             font-size: 16px !important;
-        }
-        #prof-pic {
-            height: 300px;
-            width: auto;
         }
     }
 
@@ -232,38 +236,6 @@
 </head>
 
 <body id="page-top" class="index">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top">Home</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#skills">Skills</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#projects">Projects</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#experience">Experience</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <div id="header">
         <div id="full-bg" class="container hidden-xs">
@@ -271,8 +243,8 @@
                 <div class="col-lg-12">
                     <div class="intro-text">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-6 relative about-container">
-                                <div class="about center-v">
+                            <div class="col-xs-12 col-sm-5 col-md-6 relative about-container">
+                                <div class="about">
                                     <h1>Luke Geneslaw</h1>
                                     <p>I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
                                     <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
@@ -315,76 +287,36 @@
     <section id="skills" class="relative">
         <div class="container">
             <h2 class="text-center">My Skills</h2>
-            <p id="skills-toggle" class="text-center">Here's some of the tech I've worked on so far.</p>
-            <div id="carousel-wrapper" class="relative hidden-sm hidden-xs">
-                <div id="slider">
-                    <div id="carousel">
-                        <ul>
-                            <li><img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/c/c-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/go/go-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/php/php-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/javascript/javascript-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/jquery/jquery-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/bootstrap/bootstrap-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/django/django-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/solr/solr.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/linux/linux-plain.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/apple/apple-original.svg"/></li>
-                            <li><img class="svg-icon margin_5" src="icons/android/android-plain-wordmark.svg"/></li>
-                        </ul>
-                        <div class="clearfix"></div>
-                        <div id="pager" class="pager"></div>
-                    </div>
-                </div>
-            </div>
+            <p id="skills-toggle" class="text-center">Here's some of the tech I've worked with so far.</p>
             <div class="row">
-                <div class="col-xs-12">
-                    <div id="mobile-skills" class="hidden-md hidden-lg">
-                        <img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/c/c-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/go/go-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/php/php-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/javascript/javascript-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/jquery/jquery-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/bootstrap/bootstrap-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/django/django-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/solr/solr.svg"/>
-                        <img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/>
-                        <img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/>
-                        <img class="svg-icon margin_5" src="icons/linux/linux-plain.svg"/>
-                        <img class="svg-icon margin_5" src="icons/apple/apple-original.svg"/>
-                        <img class="svg-icon margin_5" src="icons/android/android-plain-wordmark.svg"/>
-                    </div>
-                </div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/c/c-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/go/go-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/php/php-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/javascript/javascript-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/jquery/jquery-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/bootstrap/bootstrap-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/django/django-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/linux/linux-plain.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/apple/apple-original.svg"/></div>
+                        <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><img class="svg-icon margin_5" src="icons/android/android-plain-wordmark.svg"/></div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-<!-- in your body -->
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -393,7 +325,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <h3>NBA Python Projects: <a href="https://github.com/lgeneslaw" target="_blank">github</a></h3>
+                    <h3>NBA Python Projects:</h3>
                     <p>Python scripts that scrape the web to compile &amp; analyze basketball statistics. I used a library called <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank">BeautifulSoup</a> to scrape <a href="http://basketball-reference.com" target="_blank`">basketball-reference.com</a>.</p>
                     <p class="margin_b_0"><a href="nba/findings.html" target="_blank">Weighted Age of Championship Teams</a> - Ranks the "age" of NBA championship teams.</br></p>
                     <p class="margin_b_0"><a href="nba/champions.html" target="_blank">NBA Finals Team Stats</a> - Compiles the per-game statistics of every NBA finals team.</p>
@@ -556,24 +488,3 @@
 </body>
 
 </html>
-
-<script>
-
-$(function() {
- 
-    $('#carousel ul').carouFredSel({
-        prev: '#prev',
-        next: '#next',
-        pagination: "#pager",
-        scroll: 700
-    });
-
-    // overwrite bootstrap nav active classes (they conflicted with freelancer)
-    $('li.page-scroll').removeClass('active');    
-});
-
-    $('li.page-scroll').click(function() {
-        $('li.page-scroll').removeClass('active');
-    });
-
-</script>
