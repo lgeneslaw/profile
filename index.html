@@ -7,6 +7,9 @@
 
 
     /* reuseable classes */
+    .margin_0 {
+        margin: 0;
+    }
     .margin_5 {
         margin: 5px;
     }
@@ -24,6 +27,9 @@
     h3 {
         font-size: 18px !important;
     }
+    p {
+        font-family: 'Lato';
+    }
 
 
     /* ID rules */    
@@ -32,21 +38,12 @@
     }
     #full-bg {
         height: 100vh;
+        max-height: 800px;
         background: url(img/me_bg_powder.png) no-repeat top right;
         background-size: cover;
     }
-    #prof-pic {
-        width: 100%
-        height: auto;
-    }
     #skills h2 {
         margin-bottom: 10px;
-    }
-    #skills-toggle a {
-        cursor: pointer;
-    }
-    #mobile-skills {
-        margin: auto;
     }
     #projects {
         background-color: #F3F3F3;
@@ -63,43 +60,55 @@
 
 
     /* class rules */
-    .skill-icons {
-        width: auto;
-        text-align: center;
-    }
-    .about {
-        text-align: justify;
+    .icon-container {
+        margin-top: 30px;
     }
     .svg-icon {
         width: 75px;
         height: 75px;
-    } 
-    .company {
+    }
+    .project {
+        margin-top: 30px;
+    }
+    .project h3 {
+        line-height: 24px;
+    }
+    .job {
+        margin-top: 40px;
+    }
+    .details {
+        text-align: right;
+    }
+    .title-text {
         margin-top: 10px;
     }
-    .company,
+    .title,
     .dates {
-        font-family: 'Montserrat';
-        line-height: 20px;
+        font-size: 16px !important;
     }
-    .dates {
-        font-size: 16px;
+    .company-logo img {
+        width: 100%;
+        max-width: 250px;
     }
-    .title {
+    .description {
         font-size: 16px;
-        font-style: italic;
     }
 
     /* media queries */
-    /* xs */
-    @media(max-width: 767px) {
+    @media(max-width: 500px) {
         .svg-icon {
             width: 50px;
             height: 50px;
         }
+    }
+    /* xs */
+    @media(max-width: 767px) {
         #header {
             padding-top: 20px;
             padding-bottom: 20px;
+        }
+        .details {
+            text-align: center;
         }
     }
     /* sm+ */
@@ -112,14 +121,9 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        .company {
-            text-align: left;
-        }
-        .dates {
-            text-align: right;
-        }
     }
     @media(min-width: 768px) and (max-width: 991px) {
+        /* fix overlap with image */
         .about {
             padding-right: 10px;
         }
@@ -134,79 +138,6 @@
         }
     }
 
-
-/*****************************************
-            Carousel Styles
-*****************************************/
- 
-#carousel-wrapper {
-    height: 200px;
-}
-#slider {
-    margin: 0 0 0 -450px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.caroufredsel_wrapper {
-    margin: auto !important;
-}
-#carousel {
-    width: 900px;
-    position: relative;
-}
-@media(min-width: 768px) and (max-width: 991px) {
-    #carousel {
-        width: 100%;
-    }
-}
-#carousel ul {
-    list-style: none;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-#carousel li {
-    font-size: 40px;
-    color: #999;
-    text-align: center;
-    display: block;
-    width: 100px;
-    height: 100px;
-    padding: 0;
-    margin: 6px;
-    float: left;
-    position: relative;
-}
- 
-#carousel li img {
-    width: 75px;
-    height: 75px;
-}        
- 
-.clearfix {
-    float: none;
-    clear: both;
-}             
-#carousel .pager {
-    text-align: center;
-    margin: 0 auto;
-}
-#carousel .pager a {
-    background: transparent url(img/carousel_control.png) no-repeat -2px -32px;
-    text-decoration: none;
-    text-indent: -999px;
-    display: inline-block;
-    overflow: hidden;
-    width: 8px;
-    height: 8px;
-    margin: 0 5px 0 0;
-}
-#carousel .pager a.selected {
-    background: transparent url(img/carousel_control.png) no-repeat -12px -32px;
-    text-decoration: underline;             
-}
 
 </style>
 
@@ -246,8 +177,8 @@
                             <div class="col-xs-12 col-sm-5 col-md-6 relative about-container">
                                 <div class="about">
                                     <h1>Luke Geneslaw</h1>
-                                    <p>I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
-                                    <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
+                                    <p class="text-justify">I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
+                                    <a class="email" href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
                                     <ul class="list-inline">
                                         <li>
                                             <a href="https://www.linkedin.com/pub/luke-geneslaw/63/9a0/b56" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
@@ -267,10 +198,10 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="intro-text">
-                        <h1>Luke Geneslaw</h1>
+                        <h1 class="text-center">Luke Geneslaw</h1>
                         <p>I am a software engineer, originally from New Jersey and now living in New York City. I’m also a drummer, hiker, skier, and die hard Knicks fan. Since graduating from Tufts University with a degree in Computer Science and a minor in Engineering Management, I’ve been working at <a href="http://www.nextjump.com" target="_blank">Next Jump</a> and honing my skills in API and web development. I’m particularly interested in all things data – scraping, parsing, sanitizing, analyzing, you name it – and am eager to continue to expand my skill set in this area. At Next Jump, I’ve been lucky to lead a team of engineers (when I can drag them away from their computers) in our <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> program, where we get to teach kids about programming &amp; technology.</p>
-                        <a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a>
-                        <ul class="list-inline">
+                        <p class="text-center"><a href="mailto:lgeneslaw@gmail.com">lgeneslaw@gmail.com</a></p>
+                        <ul class="list-inline text-center">
                             <li>
                                 <a href="https://www.linkedin.com/pub/luke-geneslaw/63/9a0/b56" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
                             </li>
@@ -288,13 +219,14 @@
         <div class="container">
             <h2 class="text-center">My Skills</h2>
             <p id="skills-toggle" class="text-center">Here's some of the tech I've worked with so far.</p>
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.java.com/en/" target="_blank"><img class="svg-icon margin_5" src="icons/java/java-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://www.cprogramming.com/" target="_blank"><img class="svg-icon margin_5" src="icons/c/c-plain.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://www.cplusplus.com/" target="_blank"><img class="svg-icon margin_5" src="icons/cplusplus/cplusplus-plain.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.python.org/" target="_blank"><img class="svg-icon margin_5" src="icons/python/python-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://golang.org/" target="_blank"><img class="svg-icon margin_5" src="icons/go/go-plain.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://php.net/manual/en/intro-whatis.php" target="_blank"><img class="svg-icon margin_5" src="icons/php/php-plain.svg"/></a></div>
+                <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.r-project.org/" target="_blank"><img class="svg-icon margin_5" src="icons/r/r.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.mysql.com/" target="_blank"><img class="svg-icon margin_5" src="icons/mysql/mysql-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href=http://www.w3schools.com/html/"" target="_blank"><img class="svg-icon margin_5" src="icons/html5/java-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://www.w3schools.com/css/css3_intro.asp" target="_blank"><img class="svg-icon margin_5" src="icons/css3/css3-plain-wordmark.svg"/></a></div>
@@ -305,6 +237,7 @@
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://wordpress.com/" target="_blank"><img class="svg-icon margin_5" src="icons/wordpress/wordpress-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://www.zend.com/" target="_blank"><img class="svg-icon margin_5" src="icons/zend/zend-plain-wordmark.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.sourcetreeapp.com/" target="_blank"><img class="svg-icon margin_5" src="icons/sourcetree/sourcetree-original-wordmark.svg"/></a></div>
+                <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="http://www.vim.org/" target="_blank"><img class="svg-icon margin_5" src="icons/vim/vim-plain.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://eclipse.org/" target="_blank"><img class="svg-icon margin_5" src="icons/eclipse/Eclipse-SVG.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://www.jetbrains.com/" target="_blank"><img class="svg-icon margin_5" src="icons/jetbrains/jetbrains-plain.svg"/></a></div>
                 <div class="col-xs-3 col-sm-2 col-md-2 icon-container"><a href="https://git-scm.com/" target="_blank"><img class="svg-icon margin_5" src="icons/git/git-plain-wordmark.svg"/></a></div>
@@ -315,7 +248,8 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+</style>
+
     <section id="projects">
         <div class="container">
             <div class="row">
@@ -323,30 +257,42 @@
                     <h2>My Projects</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <h3>NBA Python Projects:</h3>
+            <div class="row project">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <h3 class="margin_0">NBA Python Projects:</h3>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
                     <p>Python scripts that scrape the web to compile &amp; analyze basketball statistics. I used a library called <a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank">BeautifulSoup</a> to scrape <a href="http://basketball-reference.com" target="_blank`">basketball-reference.com</a>.</p>
                     <p class="margin_b_0"><a href="nba/findings.html" target="_blank">Weighted Age of Championship Teams</a> - Ranks the "age" of NBA championship teams.</br></p>
                     <p class="margin_b_0"><a href="nba/champions.html" target="_blank">NBA Finals Team Stats</a> - Compiles the per-game statistics of every NBA finals team.</p>
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Data Visualization Projects:</h3>
+            </div>
+            <div class="row project">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <h3 class="margin_0">Data Visualization Projects:</h3>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
                     <p>Java applications that use a software package called <a href="http://processing.org/" target="_blank">Processing</a> to create data visualizations and port them on the web.</p>
                     <p class="margin_b_0"><a href="viz/NodeLink" target="_blank">Force-Directed Node-Link Graph</a> - Simulates a self-structuring graph.</p>
                     <p class="margin_b_0"><a href="viz/ThemeRiver" target="_blank">Theme River</a> - Displays a flow of data over time.</p>
                     <p class="margin_b_0"><a href="viz/Circles" target="_blank">Bouncing Circles</a> - A simple project that handles the animation of bouncing circles.</br></p>
                     <p class="margin_b_0"><a href="viz/SquarifiedTreemap" target="_blank">Squarified Treemap</a> - Displays a tree structure as rectangles within rectangles.</p>
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Tuberculosis Monitor: 
-                        <a href="img/poster.pdf" target="_blank">poster</a> | <a href="https://github.com/lgeneslaw/Alva-Cough-TB-Monitor" target="_blank">github</a>
-                    </h3>
-                    <p>Android App &amp; Web API that helps track the health of Tuberculosis patients over time.</p>
+            </div>
+            <div class="row project">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <h3 class="margin_0">Tuberculosis Monitor:</h3>
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Task Manager: <a href="https://github.com/lgeneslaw/Todo-List-Manager" target="_blank">github</a></h3>
-                    <p>Django web app that provides the basic functionality for creating, updating, deleting, and viewing your tasks at various time ranges.</p>
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <p>Android App &amp; Web API that helps track the health of Tuberculosis patients over time. The app connects to a server that analyzes cough recordings and keeps track of trends over time. Check out the project's academic <a href="img/poster.pdf" target="_blank">poster</a> to learn more, or view on <a href="https://github.com/lgeneslaw/Alva-Cough-TB-Monitor" target="_blank">github</a>.</p>
+                </div>
+            </div>
+            <div class="row project">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <h3 class="margin_0">Task Manager:</h3>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <p>Django web app that provides the basic functionality for creating, updating, deleting, and viewing your tasks at various time ranges. View on <a href="https://github.com/lgeneslaw/Todo-List-Manager" target="_blank">github</a>.</p>
                 </div>
             </div>
         </div>
@@ -361,84 +307,69 @@
                     <h2>My Experience</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3 class="company">Next Jump, Inc</h3>
+            <!-- Next Jump -->
+            <div class="row job">
+                <div class="col-xs-12 col-sm-4 col-md-3 details">
+                    <a class="company-logo" href="http://www.nextjump.com" target="_blank"><img src="img/nxj.png"/></a>
+                    <div class="title-text">
+                        <h3 class="title">Software Engineer</h3>
+                        <p class="dates margin_b_5">July 2015 - Present</p>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="dates">July 2015 - Present</p>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="title">Software Engineer</p>
-                </div>
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-md-9 description">
                     <ul>
                         <li>Completed full revamp of product detail pages, including updated version of product API and new responsive UI</li>
                         <li>Created internal tools that enable site owners to curate and edit content on our marketplace</li>
                         <li>Transitioned <a href="http://www.nextjump.com" target="_blank">nextjump.com</a> to run on custom Wordpress theme, adding previously non-existent CMS capabilities</li>
                         <li>Wrote and scheduled database jobs that create and manage user notifications</li>
-                        <li>Managed organization and implementation of a Bronx public school extracurricular program as part of Adopt-a-School team</li>
-
+                        <li>Managed organization and implementation of a Bronx public school extracurricular program as part of <a href="https://adoptaschool.nextjump.com/" target="_blank">Adopt-a-School</a> team</li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3 class="company">BMC Software</h3>
+            <!-- BMC -->
+            <div class="row job">
+                <div class="col-xs-12 col-sm-4 col-md-3 details">
+                    <a class="company-logo" href="http://www.bmc.com" target="_blank"><img src="img/bmc.png"/></a>
+                    <div class="title-text">
+                        <h3 class="title">Software Engineer Intern</h3>
+                        <p class="dates margin_b_5">Summer 2014</p>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="dates">Summer 2014</p>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="title">Intern</p>
-                </div>
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-md-9 description">
                     <ul>
                         <li>Built an SNMP Trap Receiver that listens for the completion of jobs on network devices</li>
                         <li>Developed a JMX health dashboard for an OSGi-based system that exposes system internals for diagnostic purposes</li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3 class="company">Fidelity Investments</h3>
+            <!-- Fidelity -->
+            <div class="row job">
+                <div class="col-xs-12 col-sm-4 col-md-3 details">
+                    <a class="company-logo" href="https://www.fidelity.com/" target="_blank"><img src="img/fidelity.jpg"/></a>
+                    <div class="title-text">
+                        <h3 class="title">Technical Intern</h3>
+                        <p class="dates margin_b_5">Fall 2013 - Spring 2014</p>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="dates">Fall 2013 - Spring 2014</p>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="title">Part-Time Software Developer</p>
-                </div>
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-md-9 description">
                     <ul>
-                        <li>Converted my summer project (see internship below) into a generic, data-driven diagram generator for use in various departments</li>
+                        <li>Built data-driven Visio module (VBA) that generated diagrams of asset groupings &amp; dependencies from asset technology data</li>
+                        <li>Created a database of asset technology information that provided views for the Visio diagram generator</li>
+                        <li>Abstracted diagram generator, expanding scope to wider range of departments within Fidelity</li>
                         <li>Presented the final product to architects from various departments who can benefit from a diagram generator</li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="title">Technical Intern</p>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="dates">Summer 2013</p>
-                </div>
-                <div class="col-xs-12">
-                    <ul>
-                        <li>Built data-driven Visio module (VBA) that generated diagrams of asset groupings & dependencies from asset technology data</li>
-                        <li>Created a database of asset technology information that provided views for the Visio diagram generator
-                    </ul>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <h3 class="company">Tufts Academic Resource Center</h3>
+            <!-- Tufts ARC -->
+            <div class="row job">
+                <div class="col-xs-12 col-sm-4 col-md-3 details">
+                    <a class="company-logo" href="https://students.tufts.edu/academic-advice-and-support/academic-resource-center" target="_blank"><img src="img/tufts.png"/></a>
+                    <div class="title-text">
+                        <h3 class="title">Peer Tutor</h3>
+                        <p class="dates margin_b_5">Fall 2012 - Spring 2015</p>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="dates">Fall 2012 - Spring 2015</p>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <p class="title">Peer Tutor</p>
-                </div>
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-8 col-md-9 description">
                     <ul>
                         <li>Tutor students one-on-one in Comp 11 - Intro to Computer Science and Comp 15 - Data Structures</li>
                     </ul>
@@ -482,8 +413,6 @@
     <script src="bootstrap/js/contact_me.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="bootstrap/js/freelancer.js"></script>
-    <!-- Carousel -->
-    <script src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
 
 </body>
 
